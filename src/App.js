@@ -37,7 +37,7 @@ class App extends Component {
 
   addTodo = (todo) => {
     axios.post(url, todo).then(res => {
-      let todos = [...this.state.todos, todo]
+      let todos = [...this.state.todos, res.data.todo]
   
       this.setState({
         todos
