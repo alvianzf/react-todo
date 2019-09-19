@@ -8,7 +8,7 @@ class AddTodo extends Component {
 
     handleChange = (e) => {
         this.setState({
-            content: e.target.value
+            description: e.target.value
         })
     }
 
@@ -18,7 +18,7 @@ class AddTodo extends Component {
         this.props.addTodo(this.state)
 
         this.setState({
-            content: ''
+            description: ''
         })
     }
 
