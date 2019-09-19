@@ -23,6 +23,7 @@ class App extends Component {
 
   deleteTodo = (id) => {
     axios.delete(`${url}/${id}`, {_id: id}).then( (res) => {
+
       const todos = this.state.todos.filter(todo => {
         return todo._id !==  id
       })
@@ -35,13 +36,13 @@ class App extends Component {
   }
 
   addTodo = (todo) => {
-    todo.id = Math.random()
-
-    let todos = [...this.state.todos, todo]
-
-    this.setState({
-      todos
-    })
+    axios.post(url, todo).then(res => {
+      let todos = [...this.state.todos, todo]
+  
+      this.setState({
+        todos
+      })
+    }).catch(err => console.log(err.message))
   }
 
   render() {
